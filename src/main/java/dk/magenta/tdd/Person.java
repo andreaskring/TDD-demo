@@ -3,13 +3,6 @@ package dk.magenta.tdd;
 public interface Person {
 
 	/**
-	 * Get the persons name
-	 * @return persons name
-	 */
-	public String getName();
-	
-	
-	/**
 	 * Get the persons mass
 	 * @return persons mass in kg
 	 */
@@ -29,4 +22,11 @@ public interface Person {
 	 * @return height in meters
 	 */
 	public float getHeight();
+	
+	
+	/**
+	 * Calculates the persons BMI
+	 * @return the BMI in kg/m^2
+	 */
+	public float getBMI();
 }
