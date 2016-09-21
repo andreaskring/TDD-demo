@@ -7,6 +7,9 @@ public class PersonImpl implements Person {
 	
 	public PersonImpl(float mass, float height) throws IllegalArgumentException {
 		checkAndSetMass(mass);
+		if (height < 0) {
+			throw new IllegalArgumentException("Not so fast, Ace! Height cannot be negative");
+		}
 		this.height = height;
 	}
 	

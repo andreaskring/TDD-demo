@@ -60,13 +60,14 @@ public class TestPerson {
 		assertEquals(200/(2*2), person.getBMI(), 1e-7);
 	}
 
-	// Person cannot be born with negative mass
 	@Test(expected = IllegalArgumentException.class)
 	public void personCannotBeInstantiatedWithNegativeMass() {
 		new PersonImpl(-10, (float) 1.85);
 	}
 	
-	// Person cannot be born with negative height
-
+	@Test(expected = IllegalArgumentException.class)
+	public void personCannotBeInstantiatedWithNegativeHeight() {
+		new PersonImpl(75, (float) -1.85);
+	}
 	
 }
