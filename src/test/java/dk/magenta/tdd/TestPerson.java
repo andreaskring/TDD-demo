@@ -7,7 +7,6 @@ import org.junit.Test;
 
 public class TestPerson {
 
-	// person should have correct mass after it has been changed
 	// a 2 m height person weighing 100 kg should have a BMI = 25
 
 	private Person person1;
@@ -45,4 +44,9 @@ public class TestPerson {
 		person1.setMass(-10);
 	}
 
+	@Test
+	public void personShouldHaveMass60AfterChangingTheMassTo60() {
+		person1.setMass(60);
+		assertEquals(60, person1.getMass(), 1e-7);
+	}
 }

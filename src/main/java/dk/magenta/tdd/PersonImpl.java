@@ -15,7 +15,12 @@ public class PersonImpl implements Person {
 	}
 
 	public void setMass(float mass) throws IllegalArgumentException {
-		throw new IllegalArgumentException();
+		if (mass < 0) {
+			throw new IllegalArgumentException();	
+		} else {
+			this.mass = mass;
+		}
+		
 
 	}
 
