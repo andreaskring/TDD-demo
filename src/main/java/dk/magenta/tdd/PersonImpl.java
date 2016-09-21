@@ -15,7 +15,7 @@ public class PersonImpl implements Person {
 	}
 
 	public void setMass(float mass) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
+		throw new IllegalArgumentException();
 
 	}
 
