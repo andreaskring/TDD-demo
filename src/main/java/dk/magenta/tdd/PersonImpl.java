@@ -3,9 +3,11 @@ package dk.magenta.tdd;
 public class PersonImpl implements Person {
 
 	private float mass;
+	private float height;
 	
-	public PersonImpl(float mass) {
+	public PersonImpl(float mass, float height) {
 		this.mass = mass;
+		this.height = height;
 	}
 	
 	public float getMass() {
@@ -18,8 +20,7 @@ public class PersonImpl implements Person {
 	}
 
 	public float getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return height;
 	}
 
 	public float getBMI() {
