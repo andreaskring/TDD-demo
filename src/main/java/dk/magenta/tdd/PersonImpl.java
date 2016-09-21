@@ -2,8 +2,14 @@ package dk.magenta.tdd;
 
 public class PersonImpl implements Person {
 
+	private float mass;
+	
+	public PersonImpl(float mass) {
+		this.mass = mass;
+	}
+	
 	public float getMass() {
-		return 50;
+		return mass;
 	}
 
 	public void setMass(float mass) throws IllegalArgumentException {
