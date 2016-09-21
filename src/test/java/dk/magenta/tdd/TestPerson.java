@@ -7,9 +7,6 @@ import org.junit.Test;
 
 public class TestPerson {
 
-	// Person cannot be born with negative mass
-	// Person cannot be born with negative height
-	
 	private Person person1;
 	
 	@Before
@@ -62,4 +59,14 @@ public class TestPerson {
 		Person person = new PersonImpl(200, 2);
 		assertEquals(200/(2*2), person.getBMI(), 1e-7);
 	}
+
+	// Person cannot be born with negative mass
+	@Test(expected = IllegalArgumentException.class)
+	public void personCannotBeInstantiatedWithNegativeMass() {
+		new PersonImpl(-10, (float) 1.85);
+	}
+	
+	// Person cannot be born with negative height
+
+	
 }
