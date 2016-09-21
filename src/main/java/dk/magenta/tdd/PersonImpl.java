@@ -20,8 +20,6 @@ public class PersonImpl implements Person {
 		} else {
 			this.mass = mass;
 		}
-		
-
 	}
 
 	public float getHeight() {
@@ -29,8 +27,7 @@ public class PersonImpl implements Person {
 	}
 
 	public float getBMI() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mass/(height*height);
 	}
 
 }

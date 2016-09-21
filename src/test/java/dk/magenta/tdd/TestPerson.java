@@ -7,8 +7,9 @@ import org.junit.Test;
 
 public class TestPerson {
 
-	// a 2 m height person weighing 100 kg should have a BMI = 25
-
+	// Person cannot be born with negative mass
+	// Person cannot be born with negative height
+	
 	private Person person1;
 	
 	@Before
@@ -48,5 +49,17 @@ public class TestPerson {
 	public void personShouldHaveMass60AfterChangingTheMassTo60() {
 		person1.setMass(60);
 		assertEquals(60, person1.getMass(), 1e-7);
+	}
+	
+	@Test
+	public void shouldHaveBMI25WhenMassIs100AndHeightIs2() {
+		Person person = new PersonImpl(100, 2);
+		assertEquals(100/(2*2), person.getBMI(), 1e-7);
+	}
+
+	@Test
+	public void shouldHaveBMI50WhenMassIs200AndHeightIs2() {
+		Person person = new PersonImpl(200, 2);
+		assertEquals(200/(2*2), person.getBMI(), 1e-7);
 	}
 }
