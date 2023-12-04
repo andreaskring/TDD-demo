@@ -1,6 +1,6 @@
 import pytest
 
-from demo.yatzy import score_chance, score_twos
+from demo.yatzy import score_chance, score_twos, score, Category
 
 
 # [DONE] The roll 2,2,3,2,5 within the category TWOS should score 6
@@ -16,7 +16,12 @@ from demo.yatzy import score_chance, score_twos
 
 # If the first dice is 0, a ValueError should be raised
 # If the second dice is 7, a ValueError should be raised
-# Raise exception if length of dice tuple is greate than 5
+# [DONE] Raise exception if length of dice tuple is greater than 5
+
+def test_score_raises_value_error_for_more_than_5_dices():
+    with pytest.raises(ValueError):
+        # Act + Assert
+        score(Category.FIVES, (1, 2, 3, 4, 5, 6, 7))
 
 
 def test_score_chance_returns_20_for_roll_34355():

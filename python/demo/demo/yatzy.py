@@ -16,7 +16,7 @@ def score(category: Category, dices: tuple[int, ...]) -> int:
     """
     Calculate the score of a dice roll with a given category
     """
-    pass
+    raise ValueError()
 
 
 def score_twos(dices: tuple[int, ...]) -> int:
