@@ -1,9 +1,11 @@
+import pytest
+
 from demo.yatzy import score_chance, score_twos
 
 
 # [DONE] The roll 2,2,3,2,5 within the category TWOS should score 6
 # [DONE] The roll 2,2,3,2,2 within the category TWOS should score 8
-# The roll 3,4,3,5,5 within the category TWOS should score 0
+# [DONE] The roll 3,4,3,5,5 within the category TWOS should score 0
 # The roll 3,4,3,5,5 within the category FIVES should score 10
 
 # [DONE] The roll 3,4,3,5,5 within the category CHANCE should score 20
@@ -33,25 +35,17 @@ def test_score_chance_returns_14_for_roll_12344():
     assert score == 1 + 2 + 3 + 4 + 4
 
 
-def test_score_twos_returns_6_for_roll_22325():
+@pytest.mark.parametrize(
+    "roll, expected",
+    [
+        ((2, 2, 3, 2, 5), 6),
+        ((2, 2, 3, 2, 2), 8),
+        ((3, 4, 3, 5, 5), 0),
+    ]
+)
+def test_score_twos_returns_0_for_roll_34355(roll, expected):
     # Act
-    score = score_twos((2, 2, 3, 2, 5))
+    score = score_twos(roll)
 
     # Assert
-    assert score == 2 + 2 + 2
-
-
-def test_score_twos_returns_6_for_roll_22322():
-    # Act
-    score = score_twos((2, 2, 3, 2, 2))
-
-    # Assert
-    assert score == 2 + 2 + 2 + 2
-
-
-def test_score_twos_returns_0_for_roll_34355():
-    # Act
-    score = score_twos((3, 4, 3, 5, 5))
-
-    # Assert
-    assert score == 0
+    assert score == expected
