@@ -47,3 +47,11 @@ def test_score_twos_returns_6_for_roll_22322():
 
     # Assert
     assert score == 2 + 2 + 2 + 2
+
+
+def test_score_twos_returns_0_for_roll_34355():
+    # Act
+    score = score_twos((3, 4, 3, 5, 5))
+
+    # Assert
+    assert score == 0
