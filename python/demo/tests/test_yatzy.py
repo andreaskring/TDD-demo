@@ -1,7 +1,8 @@
-from demo.yatzy import score_chance
+from demo.yatzy import score_chance, score_twos
 
-# The roll 2,2,3,2,5 within the category TWOS should score 6
-# The roll 2,2,3,2,2 within the category TWOS should score 8
+
+# [DONE] The roll 2,2,3,2,5 within the category TWOS should score 6
+# [DONE] The roll 2,2,3,2,2 within the category TWOS should score 8
 # The roll 3,4,3,5,5 within the category TWOS should score 0
 # The roll 3,4,3,5,5 within the category FIVES should score 10
 
@@ -30,3 +31,19 @@ def test_score_chance_returns_14_for_roll_12344():
 
     # Assert
     assert score == 1 + 2 + 3 + 4 + 4
+
+
+def test_score_twos_returns_6_for_roll_22325():
+    # Act
+    score = score_twos((2, 2, 3, 2, 5))
+
+    # Assert
+    assert score == 2 + 2 + 2
+
+
+def test_score_twos_returns_6_for_roll_22322():
+    # Act
+    score = score_twos((2, 2, 3, 2, 2))
+
+    # Assert
+    assert score == 2 + 2 + 2 + 2

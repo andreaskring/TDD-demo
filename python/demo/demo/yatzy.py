@@ -23,7 +23,7 @@ def score_twos(dices: tuple[int, ...]) -> int:
     """
     Calculate the score of the dice roll within the TWOS category
     """
-    pass
+    return sum([d for d in dices if d == 2])
 
 
 def score_fives(dices: tuple[int, ...]) -> int:
