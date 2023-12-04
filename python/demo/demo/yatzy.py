@@ -37,7 +37,7 @@ def score_chance(dices: tuple[int, ...]) -> int:
     """
     Calculate the score of the dice roll within the CHANCE category
     """
-    pass
+    return sum(dices)
 
 
 def score_yatzy(dices: tuple[int, ...]) -> int:
