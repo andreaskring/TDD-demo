@@ -16,21 +16,28 @@ def score(category: Category, dices: tuple[int, ...]) -> int:
     """
     Calculate the score of a dice roll with a given category
     """
-    raise ValueError()
+    if len(dices) > 5:
+        raise ValueError()
+
+    return score_fives(dices)
+
+
+def _score_n(dices: tuple[int, ...], n: int) -> int:
+    return sum([d for d in dices if d == n])
 
 
 def score_twos(dices: tuple[int, ...]) -> int:
     """
     Calculate the score of the dice roll within the TWOS category
     """
-    return sum([d for d in dices if d == 2])
+    return _score_n(dices, 2)
 
 
 def score_fives(dices: tuple[int, ...]) -> int:
     """
     Calculate the score of the dice roll within the FIVES category
     """
-    pass
+    return _score_n(dices, 5)
 
 
 def score_chance(dices: tuple[int, ...]) -> int:

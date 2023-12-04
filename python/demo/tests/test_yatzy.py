@@ -1,12 +1,13 @@
 import pytest
 
-from demo.yatzy import score_chance, score_twos, score, Category
+from demo.yatzy import score_chance, score_twos, score, Category, score_fives
 
 
 # [DONE] The roll 2,2,3,2,5 within the category TWOS should score 6
 # [DONE] The roll 2,2,3,2,2 within the category TWOS should score 8
 # [DONE] The roll 3,4,3,5,5 within the category TWOS should score 0
-# The roll 3,4,3,5,5 within the category FIVES should score 10
+# [DONE] The roll 3,4,3,5,5 within the category FIVES should score 10
+# [DONE] The roll 5,4,3,5,5 within the category FIVES should score 15
 
 # [DONE] The roll 3,4,3,5,5 within the category CHANCE should score 20
 # [DONE] The roll 1,2,3,4,4 within the category CHANCE should score 14
@@ -17,6 +18,22 @@ from demo.yatzy import score_chance, score_twos, score, Category
 # If the first dice is 0, a ValueError should be raised
 # If the second dice is 7, a ValueError should be raised
 # [DONE] Raise exception if length of dice tuple is greater than 5
+
+def test_score_returns_10_in_category_fives_for_roll_34355():
+    # Act
+    result = score(Category.FIVES, (3, 4, 3, 5, 5))
+
+    # Assert
+    assert result == 5 + 5
+
+
+def test_score_returns_10_in_category_fives_for_roll_54355():
+    # Act
+    result = score(Category.FIVES, (5, 4, 3, 5, 5))
+
+    # Assert
+    assert result == 5 + 5 + 5
+
 
 def test_score_raises_value_error_for_more_than_5_dices():
     with pytest.raises(ValueError):
@@ -51,6 +68,22 @@ def test_score_chance_returns_14_for_roll_12344():
 def test_score_twos_returns_0_for_roll_34355(roll, expected):
     # Act
     score = score_twos(roll)
+
+    # Assert
+    assert score == expected
+
+
+@pytest.mark.parametrize(
+    "roll, expected",
+    [
+        ((2, 2, 3, 2, 5), 5),
+        ((2, 2, 3, 2, 2), 0),
+        ((3, 4, 3, 5, 5), 10),
+    ]
+)
+def test_score_fives(roll, expected):
+    # Act
+    score = score_fives(roll)
 
     # Assert
     assert score == expected
